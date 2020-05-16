@@ -18,7 +18,7 @@ const buildControls = props =>(
                 key={control.label}
                 added={() => props.ingredientAdded(control.type)} 
                 removed={() => props.ingredientRemoved(control.type)}
-                disabled={props.disabled[control.type]}
+                disabledLessButton={props.disabledLessButton[control.type]}
                 />
       })}
       <button className={styles.OrderButton} disabled={!props.purchaseable}>ORDER NOW</button>
