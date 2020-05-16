@@ -10,7 +10,6 @@ const Burger = props => {
                 })
             })
         .reduce((arr, ele) => {
-            console.log("ele=>  ",ele)
             return arr.concat(ele)
         }, [])
 
