@@ -1,23 +1,36 @@
-import React from 'react'
+import React, { Component } from 'react'
 import styles from './Modal.css'
 import Aux from '../../../hoc/Aux'
 import Backdrop from '../Backdrop/Backdrop'
 
-const Modal = props => {
+class Modal extends Component {
   //  console.log('props in Modal=>  ',props)
+  // we did not use PureComponent, because that would check all the props apart from
+  // the 'show' prop before rendering this component
+  // we could also just use React.memo if we wanted the component to remain a 
+  //funcional component.
+  componentDidUpdate = () => {
+    console.log('order summary will update in modal')
+}
+
+    shouldComponentUpdate(nextProps, nextState) {
+        return nextProps.show !== this.props.show
+    }
+  render() {
     return(
     <Aux>
-        <Backdrop show={props.show} clicked={props.modalClosed} />
+        <Backdrop show={this.props.show} clicked={this.props.modalClosed} />
         <div
             className={styles.Modal}
             style={{
-                transform: props.show ? 'translateY(0)' : 'translateY(-100vh)',
-                opacity: props.show ? '1' : '0'
+                transform: this.props.show ? 'translateY(0)' : 'translateY(-100vh)',
+                opacity: this.props.show ? '1' : '0'
             }}>
-            {props.children}
+            {this.props.children}
         </div>
     </Aux>
     )
+        }
 }
 
 export default Modal
