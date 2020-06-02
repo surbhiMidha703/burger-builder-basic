@@ -5,7 +5,7 @@ import styles from './SideDrawer.css'
 import Aux from '../../../hoc/Aux'
 import Backdrop from '../../UI/Backdrop/Backdrop'
 const SideDrawer = props => {
-    console.log('props in sidedrawer=>  ',props)
+    //console.log('props in sidedrawer=>  ',props)
     let attachClasses = [styles.SideDrawer, styles.Close]
     
     if (props.opened) {
