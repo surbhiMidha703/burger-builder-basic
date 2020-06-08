@@ -14,9 +14,11 @@ class Modal extends Component {
 }
 
     shouldComponentUpdate(nextProps, nextState) {
-        return nextProps.show !== this.props.show
+        console.log('nextProps.show !== this.props.show:  ',nextProps.show !== this.props.show)
+       return nextProps.show !== this.props.show || nextProps.children !== this.props.children
     }
   render() {
+      console.log("props in modal:  ", this.props)
     return(
     <Aux>
         <Backdrop show={this.props.show} clicked={this.props.modalClosed} />
