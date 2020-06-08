@@ -10,15 +10,12 @@ class Modal extends Component {
   // we could also just use React.memo if we wanted the component to remain a 
   //funcional component.
   componentDidUpdate = () => {
-    console.log('order summary will update in modal')
-}
+  }
 
     shouldComponentUpdate(nextProps, nextState) {
-        console.log('nextProps.show !== this.props.show:  ',nextProps.show !== this.props.show)
        return nextProps.show !== this.props.show || nextProps.children !== this.props.children
     }
   render() {
-      console.log("props in modal:  ", this.props)
     return(
     <Aux>
         <Backdrop show={this.props.show} clicked={this.props.modalClosed} />
